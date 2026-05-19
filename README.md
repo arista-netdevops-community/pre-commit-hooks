@@ -6,9 +6,7 @@ Rust-based hooks for pre-commit and pre-commit.ci.
 
 ### cargo-fmt-nightly
 
-Runs `cargo fmt` with `RUSTUP_TOOLCHAIN=nightly`. The hook definition also sets
-`language_version: nightly`, so pre-commit installs the hook with the nightly Rust
-toolchain.
+Runs `cargo fmt` with `RUSTUP_TOOLCHAIN=nightly`.
 
 Example:
 
