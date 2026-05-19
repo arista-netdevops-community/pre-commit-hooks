@@ -9,10 +9,9 @@
 
 - id: cargo-fmt
   name: Format Rust files with cargo fmt
-  description: Run cargo fmt with the stable Rust toolchain.
+  description: Run cargo fmt with the target repository's selected Rust toolchain.
   entry: cargo-fmt-hook
   language: rust
-  language_version: stable
   pass_filenames: false
   types_or: [rust]
 
@@ -21,7 +20,6 @@
   description: Run cargo check.
   entry: cargo-check-hook
   language: rust
-  language_version: stable
   pass_filenames: false
   types_or: [rust]
 
@@ -30,7 +28,6 @@
   description: Run cargo deny.
   entry: cargo-deny-hook
   language: rust
-  language_version: stable
   additional_dependencies: ["cli:cargo-deny:0.19.6"]
   pass_filenames: false
   files: (^|/)Cargo\.(toml|lock)$|^deny\.toml$|^rust/
@@ -40,7 +37,6 @@
   description: Run cargo about.
   entry: cargo-about-hook
   language: rust
-  language_version: stable
   additional_dependencies: ["cli:cargo-about:0.8.4"]
   pass_filenames: false
   files: (^|/)Cargo\.(toml|lock)$|^about\.toml$|^about.*\.hbs$
@@ -50,6 +46,5 @@
   description: Run cargo clippy.
   entry: cargo-clippy-hook
   language: rust
-  language_version: stable
   pass_filenames: false
   types_or: [rust]

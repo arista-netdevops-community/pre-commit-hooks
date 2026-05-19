@@ -26,7 +26,7 @@ Example:
 
 ### cargo-fmt
 
-Runs `cargo fmt` with the stable Rust toolchain.
+Runs `cargo fmt` with the target repository's selected Rust toolchain.
 
 Example:
 
@@ -40,7 +40,7 @@ Example:
 
 ### cargo-check
 
-Runs `cargo check` with the stable Rust toolchain.
+Runs `cargo check` with the target repository's selected Rust toolchain.
 
 Example:
 
@@ -54,7 +54,7 @@ Example:
 
 ### cargo-clippy
 
-Runs `cargo clippy` with the stable Rust toolchain.
+Runs `cargo clippy` with the target repository's selected Rust toolchain.
 
 Example:
 
