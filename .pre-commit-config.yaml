@@ -1,6 +1,6 @@
 ---
 repos:
-  - repo: local
+  - repo: .
     rev: v0.1.0
     hooks:
       - id: cargo-fmt-nightly
@@ -9,10 +9,7 @@ repos:
           - --
           - --config
           - unstable_features=true,group_imports=StdExternalCrate,imports_granularity=Item
-        files: ^rust/
       - id: cargo-check
         args: ["--locked"]
-        files: ^rust/
       - id: cargo-clippy
         args: ["--locked", "--all-targets", "--all-features"]
-        files: ^rust/
