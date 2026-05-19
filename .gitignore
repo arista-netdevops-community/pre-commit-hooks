@@ -1,0 +1,9 @@
+/target/
+
+# Rust/editor artifacts
+**/*.rs.bk
+/.rustc_info.json
+
+# Local pre-commit/coverage output
+/.pre-commit-cache/
+/coverage/

@@ -1,0 +1,55 @@
+- id: cargo-fmt-nightly
+  name: Format Rust files with cargo fmt nightly
+  description: Run cargo fmt with the nightly Rust toolchain.
+  entry: cargo-fmt-nightly-hook
+  language: rust
+  language_version: nightly
+  pass_filenames: false
+  types_or: [rust]
+
+- id: cargo-fmt
+  name: Format Rust files with cargo fmt
+  description: Run cargo fmt with the stable Rust toolchain.
+  entry: cargo-fmt-hook
+  language: rust
+  language_version: stable
+  pass_filenames: false
+  types_or: [rust]
+
+- id: cargo-check
+  name: Check Rust crates with cargo check
+  description: Run cargo check.
+  entry: cargo-check-hook
+  language: rust
+  language_version: stable
+  pass_filenames: false
+  types_or: [rust]
+
+- id: cargo-deny
+  name: Check Rust dependencies with cargo deny
+  description: Run cargo deny.
+  entry: cargo-deny-hook
+  language: rust
+  language_version: stable
+  additional_dependencies: ["cli:cargo-deny:0.19.6"]
+  pass_filenames: false
+  files: (^|/)Cargo\.(toml|lock)$|^deny\.toml$|^rust/
+
+- id: cargo-about
+  name: Generate Rust dependency license information with cargo about
+  description: Run cargo about.
+  entry: cargo-about-hook
+  language: rust
+  language_version: stable
+  additional_dependencies: ["cli:cargo-about:0.8.4"]
+  pass_filenames: false
+  files: (^|/)Cargo\.(toml|lock)$|^about\.toml$|^about.*\.hbs$
+
+- id: cargo-clippy
+  name: Lint Rust crates with cargo clippy
+  description: Run cargo clippy.
+  entry: cargo-clippy-hook
+  language: rust
+  language_version: stable
+  pass_filenames: false
+  types_or: [rust]
