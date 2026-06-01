@@ -3,6 +3,7 @@
   description: Run cargo fmt with the nightly Rust toolchain.
   entry: cargo-fmt-nightly-hook
   language: rust
+  language_version: nightly
   pass_filenames: false
   types_or: [rust]
 
