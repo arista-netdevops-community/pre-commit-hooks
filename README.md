@@ -93,8 +93,11 @@ Example:
       args:
         - generate
         - --locked
-        - --fail
         - -o
         - pyavd_utils/THIRD_PARTY_LICENSES.txt
         - about-text.hbs
 ```
+
+Do not pass `--fail` when using `cargo-about` to regenerate tracked files in
+pre-commit. Let pre-commit report changed files; `--fail` is for making
+license-resolution issues fail the `cargo about generate` process.
