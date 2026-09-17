@@ -2,5 +2,47 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "timezone": "UTC",
+  "dependencyDashboard": true,
+  "minimumReleaseAge": "7 days",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "enabledManagers": [
+    "cargo",
+    "custom.regex"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Maintain Rust CLI dependencies installed by pre-commit",
+      "managerFilePatterns": [
+        "/(^|/)\\.pre-commit-hooks\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "cli:(?<depName>[a-zA-Z0-9_-]+):(?<currentValue>\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?)"
+      ],
+      "datasourceTemplate": "crate",
+      "depTypeTemplate": "pre-commit-rust-cli",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Maintain Rust dependencies",
+      "matchManagers": [
+        "cargo",
+        "custom.regex"
+      ],
+      "semanticCommitType": "chore",
+      "commitMessagePrefix": "Bump(rust): "
+    },
+    {
+      "description": "Gate major updates behind the Dependency Dashboard",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "dependencyDashboardApproval": true
+    }
   ]
 }
