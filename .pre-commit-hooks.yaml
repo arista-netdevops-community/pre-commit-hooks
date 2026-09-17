@@ -28,7 +28,7 @@
   description: Run cargo deny.
   entry: cargo-deny-hook
   language: rust
-  additional_dependencies: ["cli:cargo-deny:0.19.6"]
+  additional_dependencies: ["cli:cargo-deny:0.20.2"]
   pass_filenames: false
   files: (^|/)Cargo\.(toml|lock)$|^deny\.toml$|^rust/
 
