@@ -37,7 +37,7 @@
   description: Run cargo about.
   entry: cargo-about-hook
   language: rust
-  additional_dependencies: ["cli:cargo-about:0.8.4"]
+  additional_dependencies: ["cli:cargo-about:0.9.2"]
   pass_filenames: false
   files: (^|/)Cargo\.(toml|lock)$|^about\.toml$|^about.*\.hbs$
 
