@@ -66,7 +66,8 @@ Example:
 
 ### cargo-deny
 
-Runs `cargo deny`. The hook installs `cargo-deny` as a Cargo CLI dependency.
+Runs `cargo-deny` directly. The hook installs and invokes the version pinned as a
+Cargo CLI dependency in pre-commit's isolated environment.
 
 Example:
 
@@ -80,7 +81,8 @@ Example:
 
 ### cargo-about
 
-Runs `cargo about`. The hook installs `cargo-about` as a Cargo CLI dependency.
+Runs `cargo-about` directly. The hook installs and invokes the version pinned as
+a Cargo CLI dependency in pre-commit's isolated environment.
 
 Example:
 
