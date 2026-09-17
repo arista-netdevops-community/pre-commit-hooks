@@ -1,6 +1,8 @@
 use std::env;
-use std::ffi::{OsStr, OsString};
-use std::process::{Command, ExitCode};
+use std::ffi::OsStr;
+use std::ffi::OsString;
+use std::process::Command;
+use std::process::ExitCode;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Toolchain {
@@ -20,19 +22,40 @@ where
 
 pub fn run_cargo(subcommand: &str, toolchain: Toolchain) -> ExitCode {
     let args = cargo_args(subcommand, env::args_os().skip(1));
-    let mut command = Command::new("cargo");
-    command.args(&args);
+    let mut command = command("cargo", &args);
 
     if toolchain == Toolchain::Nightly {
         command.env("RUSTUP_TOOLCHAIN", "nightly");
     }
+
+    run(command, &args)
+}
+
+/// Runs a CLI installed in the hook environment with the arguments passed to the hook.
+///
+/// External Cargo CLIs must be invoked directly instead of through `cargo <subcommand>`.
+/// Cargo's subcommand lookup may otherwise select an executable outside pre-commit's
+/// isolated environment and bypass the version pinned in `additional_dependencies`.
+pub fn run_cli(program: &str) -> ExitCode {
+    let args = env::args_os().skip(1).collect::<Vec<_>>();
+    run(command(program, &args), &args)
+}
+
+fn command(program: &str, args: &[OsString]) -> Command {
+    let mut command = Command::new(program);
+    command.args(args);
+    command
+}
+
+fn run(mut command: Command, args: &[OsString]) -> ExitCode {
+    let program = command.get_program().to_string_lossy().into_owned();
 
     match command.status() {
         Ok(status) => ExitCode::from(status.code().unwrap_or(1) as u8),
         Err(error) => {
             eprintln!(
                 "failed to run `{}`: {error}",
-                format_command("cargo", args.iter())
+                format_command(&program, args.iter())
             );
             ExitCode::FAILURE
         }
@@ -83,5 +106,14 @@ mod tests {
             cargo_args("check", std::iter::empty::<OsString>()),
             [OsString::from("check")]
         );
+    }
+
+    #[test]
+    fn command_invokes_external_cli_directly() {
+        let args = [OsString::from("--version")];
+        let command = command("cargo-deny", &args);
+
+        assert_eq!(command.get_program(), "cargo-deny");
+        assert_eq!(command.get_args().collect::<Vec<_>>(), ["--version"]);
     }
 }

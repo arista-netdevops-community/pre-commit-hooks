@@ -1,7 +1,7 @@
 use std::process::ExitCode;
 
-use arista_pre_commit_hooks::{run_cargo, Toolchain};
+use arista_pre_commit_hooks::run_cli;
 
 fn main() -> ExitCode {
-    run_cargo("about", Toolchain::Default)
+    run_cli("cargo-about")
 }
