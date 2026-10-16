@@ -1,0 +1,17 @@
+# Permissive licenses used by our dependencies, in selection preference order.
+# Keep this list in sync with deny.toml.
+accepted = [
+    "MIT",
+    "Apache-2.0",
+    "BSD-3-Clause",
+    "ISC",
+    "Unicode-3.0",
+    "Zlib",
+    # Permissive license for the bundled certificate data in webpki-root-certs.
+    "CDLA-Permissive-2.0",
+]
+
+[private]
+# Attribute third-party dependencies, skipping our publish = false package.
+# This also prevents scanning our generated report as a license source.
+ignore = true

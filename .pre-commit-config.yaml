@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: .
-    rev: fix/cargo-about-library-adapter
+    rev: v0.1.5
     hooks:
       - id: cargo-fmt-nightly
         args:

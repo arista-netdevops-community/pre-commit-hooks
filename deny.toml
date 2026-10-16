@@ -1,0 +1,13 @@
+[licenses]
+# Only explicitly allowed permissive licenses; no per-crate exceptions.
+# Keep this list in sync with about.toml.
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "BSD-3-Clause",
+    "ISC",
+    "Unicode-3.0",
+    "Zlib",
+    # Permissive license for the bundled certificate data in webpki-root-certs.
+    "CDLA-Permissive-2.0",
+]
