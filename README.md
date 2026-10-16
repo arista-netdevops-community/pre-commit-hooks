@@ -81,8 +81,16 @@ Example:
 
 ### cargo-about
 
-Runs `cargo-about` directly. The hook installs and invokes the version pinned as
-a Cargo CLI dependency in pre-commit's isolated environment.
+Generates licenses with the `cargo-about` library linked into `cargo-about-hook`.
+The dependency version is maintained in `Cargo.toml`; no separate `cargo-about`
+executable or Cargo CLI installation features are needed. Installing the Rust
+hooks requires Rust 1.88 or newer.
+
+The adapter supports only `generate`, with `--locked`, `--manifest-path`,
+`-o`/`--output-file`, and a single Handlebars template file. It discovers
+`about.toml` beside the manifest or in a parent directory, using cargo-about's
+configuration, workarounds, and license-resolution behavior. Output defaults to
+stdout; `-o -` also writes to stdout.
 
 Example:
 
@@ -100,6 +108,6 @@ Example:
         - about-text.hbs
 ```
 
-Do not pass `--fail` when using `cargo-about` to regenerate tracked files in
-pre-commit. Let pre-commit report changed files; `--fail` is for making
-license-resolution issues fail the `cargo about generate` process.
+Let pre-commit report changed files. The adapter uses cargo-about's default
+license-resolution behavior and does not expose `--fail` or its other CLI
+commands and options.

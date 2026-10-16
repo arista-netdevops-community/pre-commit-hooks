@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: .
-    rev: v0.1.0
+    rev: fix/cargo-about-library-adapter
     hooks:
       - id: cargo-fmt-nightly
         args:
@@ -13,3 +13,13 @@ repos:
         args: ["--locked"]
       - id: cargo-clippy
         args: ["--locked", "--all-targets", "--all-features"]
+      - id: cargo-deny
+        args: ["--locked", "--all-features", "check"]
+      - id: cargo-about
+        name: Generate third-party Rust licenses
+        args:
+          - generate
+          - --locked
+          - -o
+          - THIRD_PARTY_LICENSES.txt
+          - about-text.hbs

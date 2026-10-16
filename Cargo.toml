@@ -2,10 +2,24 @@
 name = "arista-pre-commit-hooks"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.85"
+rust-version = "1.88"
 license = "Apache-2.0"
 description = "Rust-based pre-commit hooks for cargo workflows"
 publish = false
+
+[dependencies]
+anyhow = "1.0"
+cargo-about = "0.9.2"
+clap = { version = "4.5", features = ["derive"] }
+codespan = "0.13"
+codespan-reporting = "0.13"
+env_logger = { version = "0.11", default-features = false }
+handlebars = "6.0"
+krates = "0.21"
+log = "0.4"
+rustls = { version = "0.23", default-features = false, features = ["ring"] }
+toml-span = "0.7"
+ureq = { version = "3.3", default-features = false, features = ["platform-verifier", "rustls-no-provider"] }
 
 [lib]
 name = "arista_pre_commit_hooks"
