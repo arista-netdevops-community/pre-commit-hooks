@@ -1,3 +1,15 @@
+[bans]
+multiple-versions = "warn"
+# The local cargo-about adapter must share these dependency types with cargo-about.
+deny = [
+    { crate = "codespan", deny-multiple-versions = true },
+    { crate = "codespan-reporting", deny-multiple-versions = true },
+    { crate = "krates", deny-multiple-versions = true },
+    { crate = "toml-span", deny-multiple-versions = true },
+    { crate = "ureq", deny-multiple-versions = true },
+    { crate = "rustls", deny-multiple-versions = true },
+]
+
 [licenses]
 # Only explicitly allowed permissive licenses; no per-crate exceptions.
 # Keep this list in sync with about.toml.

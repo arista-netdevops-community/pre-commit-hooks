@@ -3462,7 +3462,6 @@ Used by:
   - cargo-about 0.9.3
   - cfg-expr 0.20.10
   - krates 0.21.3
-  - krates 0.22.0
   - toml-span 0.7.2
 
 License text:
