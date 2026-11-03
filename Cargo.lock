@@ -75,7 +75,7 @@ checksum = "330a5ed07fa54e4702c9d6c4174f74427fc0ef6e214bbd677ae50a5099946470"
 
 [[package]]
 name = "arista-pre-commit-hooks"
-version = "0.1.7"
+version = "0.1.8"
 dependencies = [
  "anyhow",
  "cargo-about",
@@ -84,7 +84,7 @@ dependencies = [
  "codespan-reporting",
  "env_logger",
  "handlebars",
- "krates 0.22.0",
+ "krates",
  "log",
  "rustls",
  "toml-span",
@@ -138,7 +138,7 @@ dependencies = [
  "codespan",
  "codespan-reporting",
  "ignore",
- "krates 0.21.3",
+ "krates",
  "libc",
  "log",
  "memchr",
@@ -764,20 +764,6 @@ dependencies = [
  "camino",
  "cfg-expr",
  "indexmap",
- "petgraph",
- "semver",
- "serde",
- "serde_json",
-]
-
-[[package]]
-name = "krates"
-version = "0.22.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f8fd33eabd6efa4e9f9963c0bd6e4cc2f229fe8acad52eaeb5d7d61134545fcf"
-dependencies = [
- "camino",
- "cfg-expr",
  "petgraph",
  "semver",
  "serde",
