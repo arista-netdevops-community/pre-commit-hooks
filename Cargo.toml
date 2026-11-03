@@ -15,7 +15,7 @@ codespan = "0.13"
 codespan-reporting = "0.13"
 env_logger = { version = "0.11", default-features = false }
 handlebars = "6.0"
-krates = "0.21"
+krates = "0.22"
 log = "0.4"
 rustls = { version = "0.23", default-features = false, features = ["ring"] }
 toml-span = "0.7"
