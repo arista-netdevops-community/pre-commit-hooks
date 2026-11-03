@@ -16,7 +16,7 @@ codespan = "0.13" # Shared cargo-about API: keep compatible with its dependency 
 codespan-reporting = "0.13" # Shared cargo-about API: keep compatible with its dependency requirement.
 env_logger = { version = "0.11", default-features = false } # Adapter logging setup.
 handlebars = "6.4" # Adapter template rendering.
-krates = "0.21" # Shared cargo-about API: keep compatible with its dependency requirement.
+krates = "0.22" # Shared cargo-about API: keep compatible with its dependency requirement.
 log = "0.4" # Adapter diagnostics.
 rustls = { version = "0.23", default-features = false, features = ["ring"] } # Must match the API used by ureq's rustls backend.
 toml-span = "0.7" # Shared cargo-about API: keep compatible with its dependency requirement.
