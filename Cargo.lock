@@ -84,7 +84,7 @@ dependencies = [
  "codespan-reporting",
  "env_logger",
  "handlebars",
- "krates",
+ "krates 0.22.0",
  "log",
  "rustls",
  "toml-span",
@@ -138,7 +138,7 @@ dependencies = [
  "codespan",
  "codespan-reporting",
  "ignore",
- "krates",
+ "krates 0.21.3",
  "libc",
  "log",
  "memchr",
@@ -764,6 +764,20 @@ dependencies = [
  "camino",
  "cfg-expr",
  "indexmap",
+ "petgraph",
+ "semver",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "krates"
+version = "0.22.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f8fd33eabd6efa4e9f9963c0bd6e4cc2f229fe8acad52eaeb5d7d61134545fcf"
+dependencies = [
+ "camino",
+ "cfg-expr",
  "petgraph",
  "semver",
  "serde",
